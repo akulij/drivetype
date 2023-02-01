@@ -9,11 +9,11 @@ typedef enum {
     ERR_ACCESS,
 } DriveType;
 
-DriveType detect_drive_type(char* drive_letter) {
+DriveType detect_drive_type(char* drive_acronym) {
     char drive_type_path[1024];
     DriveType drive_type;
 
-    sprintf(drive_type_path, "/sys/block/%s/queue/rotational", drive_letter);
+    sprintf(drive_type_path, "/sys/block/%s/queue/rotational", drive_acronym);
     FILE* f = fopen(drive_type_path, "r");
     if (!f) return ERR_ACCESS;
     fscanf(f, "%d", &drive_type);
