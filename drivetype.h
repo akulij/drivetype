@@ -4,8 +4,8 @@
 #include <stdio.h>
 
 typedef enum {
-    HDD_DRIVE,
     SDD_DRIVE,
+    HDD_DRIVE,
     ERR_ACCESS,
 } DriveType;
 
